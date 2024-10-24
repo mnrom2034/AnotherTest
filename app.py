@@ -1,8 +1,11 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS  # Import CORS
 import requests
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes
 
+# Your existing code here...
 def download_file(url, file_name):
     response = requests.get(url, stream=True)
     if response.status_code == 200:
